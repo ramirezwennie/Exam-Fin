@@ -1,0 +1,43 @@
+sortingAlgoBubble.js:
+
+// sortingAlgoBubble.js
+
+// Array to store the numbers
+let numbers = [];
+
+// Get input from the user using prompt()
+for (let i = 0; i < 10; i++) {
+  let input = prompt(`Enter number ${i + 1} of 10:`);
+  numbers.push(Number(input));
+}
+
+// Bubble Sort Function
+function bubbleSort(arr) {
+  let len = arr.length;
+  let swapped;
+
+  for (let i = 0; i < len - 1; i++) {
+    swapped = false;
+
+    for (let j = 0; j < len - i - 1; j++) {
+      console.log(`Comparing ${arr[j]} and ${arr[j + 1]}`);
+
+      if (arr[j] > arr[j + 1]) {
+        // Swap
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        swapped = true;
+      }
+    }
+
+    // If no swaps occurred, array is sorted
+    if (!swapped) break;
+  }
+
+  return arr;
+}
+
+// Sort the numbers and log the result
+let sortedArray = bubbleSort(numbers);
+console.log("Sorted Array:", sortedArray);
