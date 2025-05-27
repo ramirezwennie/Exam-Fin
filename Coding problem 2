@@ -1,0 +1,46 @@
+// sortArray.js
+
+// Function to safely get comma-separated numbers from prompt
+function getNumbersFromPrompt(message) {
+  let input = prompt(message);
+  // Basic validation and splitting
+  if (input) {
+    return input.split(',').map(Number).filter(n => !isNaN(n));
+  }
+  return [];
+}
+
+// Function to safely get comma-separated names from prompt
+function getNamesFromPrompt(message) {
+  let input = prompt(message);
+  if (input) {
+    return input.split(',').map(s => s.trim()).filter(s => s.length > 0);
+  }
+  return [];
+}
+
+
+// Get input for numbers and names arrays
+const numbers = getNumbersFromPrompt("Enter numbers separated by commas (e.g., 24, 65, 21, 5, 9, 32, 42, 80, 57):");
+const names = getNamesFromPrompt("Enter names separated by commas (e.g., Zenvo, Erica, Jordie, Alicia, Redon):");
+
+// Log original arrays (optional, but good for debugging)
+console.log("Original Numbers Array:", numbers);
+console.log("Original Names Array:", names);
+console.log("---");
+
+// Merge both arrays into a single array
+const mergedArray = numbers.concat(names);
+console.log("Merged Array:", mergedArray);
+console.log("---");
+
+// Sort numbers numerically in reverse
+// The sort() method with a custom compare function (b - a) sorts in descending order.
+const sortedNumbersReverse = [...numbers].sort((a, b) => b - a);
+console.log("Numbers sorted numerically in reverse:", sortedNumbersReverse);
+console.log("---");
+
+// Sort names alphabetically
+// The sort() method for strings sorts alphabetically by default.
+const sortedNamesAlphabetically = [...names].sort();
+console.log("Names sorted alphabetically:", sortedNamesAlphabetically);
