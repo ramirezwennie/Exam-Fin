@@ -1,0 +1,20 @@
+// Prompt user for names and ages
+let names = prompt("Enter names separated by commas (e.g., Genevieve, Juan, Luna, Gabriel, Elise):");
+let ages = prompt("Enter corresponding ages separated by commas (e.g., 24, 65, 21, 5, 9):");
+
+// Convert inputs into arrays
+let subArray1 = names.split(",").map(name => name.trim());
+let subArray2 = ages.split(",").map(age => parseInt(age.trim()));
+
+// Combine name and age into a new multi-dimensional array
+let restructuredArray = [];
+
+for (let i = 0; i < subArray1.length; i++) {
+    restructuredArray.push([subArray1[i], subArray2[i]]);
+}
+
+// Log the new multi-dimensional array to the console
+console.log("Restructured Array:");
+restructuredArray.forEach(pair => {
+    console.log(pair);
+});
